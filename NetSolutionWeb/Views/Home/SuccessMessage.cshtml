@@ -1,0 +1,36 @@
+﻿@model NetSolutionWeb.Models.Quote
+
+@{
+    ViewData["Title"] = "ContactUs";
+}
+
+<div class="row">
+    <div class="col-md-9">
+        <h1 class="myfont">Contact US</h1>
+        <p>Have a web or mobile app project in mind? Let’s discuss making your project a reality.</p>
+        <p><strong>Your Request is sucessfuly sent to us. Our team contact you soon.</strong></p>
+    </div>
+    <div class="col-md-3">
+        <h1 class="myfont">Hate Filling out Forms?</h1>
+        <p>Email us.</p>
+        <br />
+        <br />
+        <h2 class="myfont">Request a Quote</h2>
+        <p>sales@netsolutions.com</p>
+        <br />
+        <br />
+        <h2 class="myfont">
+            Careers
+        </h2>
+        <p>careers@netsolutions.com</p>
+        <br />
+        <br />
+        <h2 class="myfont">
+            Other Inquries
+        </h2>
+        <p>info@netsolutions.com</p>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

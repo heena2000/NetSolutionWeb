@@ -1,0 +1,53 @@
+﻿@model IEnumerable<NetSolutionWeb.Models.Testimonial>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 class="display-4 myfont">All Testimonials</h1>
+    <a asp-action="Create" class="btn btn-dark">New Testimonial</a>
+</div>
+<hr />
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Designation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestimonialText)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Designation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TestimonialText)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.TestimonialID">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TestimonialID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

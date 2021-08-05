@@ -1,0 +1,59 @@
+﻿@model IEnumerable<NetSolutionWeb.Models.Story>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 class="display-4 myfont">All Success Stories</h1>
+    <a asp-action="Create" class="btn btn-dark">New Story</a>
+</div>
+<hr />
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Logo
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TagLine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Industry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Features)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/stories/@item.StoryID@item.ExtName" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TagLine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Industry)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Features)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.StoryID">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.StoryID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

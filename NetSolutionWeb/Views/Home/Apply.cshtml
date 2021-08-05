@@ -1,0 +1,45 @@
+﻿@model NetSolutionWeb.Models.Career
+
+@{
+    ViewData["Title"] = "Apply";
+}
+
+<div class="text-center">
+    <h1 class="display-4 myfont">Join the Tribe</h1>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Apply" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailID" class="control-label"></label>
+                <input asp-for="EmailID" class="form-control" />
+                <span asp-validation-for="EmailID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactNo" class="control-label"></label>
+                <input asp-for="ContactNo" class="form-control" />
+                <span asp-validation-for="ContactNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FileUpload.FormFile" class="control-label">Choose Your Resume:</label>
+                <input asp-for="FileUpload.FormFile" type="file" class="form-control">
+                <span asp-validation-for="FileUpload.FormFile" class="text-danger"></span>
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" value="Send Your Details" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

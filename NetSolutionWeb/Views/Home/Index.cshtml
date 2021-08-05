@@ -1,0 +1,75 @@
+﻿@model IEnumerable<NetSolutionWeb.Models.Story>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h1 class="myfont display-4">
+            Develop Your
+            Software Products Better, Faster &
+            Cheaper.
+        </h1>
+        <p>
+            All 3. Really. Partner with us for affordable software & app development supported by advanced frameworks, processes, automation, and expertise.
+        </p>
+        <a class="btn btn-outline-danger" asp-area="" asp-controller="Home" asp-action="ContactUs">Let Talk</a>
+    </div>
+    <div class="col-md-6">
+        <img src="~/hub.png" style="height:500px" />
+    </div>
+</div>
+<div class="text-center">
+    <h1 class="display-4 myfont">Our Success Stories</h1>
+</div>
+<hr />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-12 mb-3">
+            <div class="card w-100 col-md-12">
+                <center>
+                    <img src="~/stories/@item.StoryID@item.ExtName" alt="" style="width:100%;height:200px">
+                </center>
+                <div class="card-body">
+                    <h5 class="card-text text-center">
+                        @item.ClientName
+                    </h5>
+                    <p>@item.TagLine</p>
+                    <p>Industry: @item.Industry</p>
+                    <p>Feature: @item.Features</p>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+<div class="text-center">
+    <h1 class="display-4 myfont">Our Testimonial</h1>
+</div>
+<hr />
+<div class="row">
+    @foreach (var item in ViewData["Testimonials"] as IEnumerable<NetSolutionWeb.Models.Testimonial>)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card w-100 shadow col-md-12">
+                <div class="card-body">
+                    <h5 class="card-text text-center">
+                        @item.PersonName
+                    </h5>
+                    <p>@item.Designation , @item.CompanyName </p>
+                    <p class="lead">&quot;@item.TestimonialText&quot;</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1 class="myfont">
+            Got a Software or App Development Project in Mind?
+            Get Started Now.
+        </h1>
+        <a class="btn btn-danger" asp-area="" asp-controller="Home" asp-action="ContactUs">Let Talk</a>
+    </div>
+</div>
